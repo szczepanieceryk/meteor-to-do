@@ -1,6 +1,7 @@
 import React from "react";
 import LoginPage from "../../imports/ui/LoginPage";
 import HomePage from "../../imports/ui/HomePage";
+import NotFoundPage from "/imports/ui/NotFoundPage";
 
 export const publicRoutes = {
   login: {
@@ -21,4 +22,9 @@ export const publicRoutes = {
   },
 };
 
-export const protectedRoutes = {};
+export const protectedRoutes = {
+  default: {
+    path: "/404",
+    element: (<NotFoundPage />) as React.ReactNode,
+  },
+};
