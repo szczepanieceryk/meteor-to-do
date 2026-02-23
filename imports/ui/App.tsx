@@ -12,7 +12,7 @@ const App = () => {
 
   if (userId == null) {
     return (
-      <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+      <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
         <Switch>
           {Object.values(publicRoutes).map((route) => (
             <Route key={route.path} path={route.path}>

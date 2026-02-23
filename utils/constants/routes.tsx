@@ -2,6 +2,7 @@ import React from "react";
 import LoginPage from "../../imports/ui/LoginPage";
 import HomePage from "../../imports/ui/HomePage";
 import NotFoundPage from "/imports/ui/NotFoundPage";
+import SignUpPage from "/imports/ui/SignUpPage";
 
 export const publicRoutes = {
   login: {
@@ -10,7 +11,7 @@ export const publicRoutes = {
   },
   signup: {
     path: "/signup",
-    element: (<LoginPage />) as React.ReactNode,
+    element: (<SignUpPage />) as React.ReactNode,
   },
   home: {
     path: "/",
