@@ -44,8 +44,8 @@ const SignUpPage = () => {
   };
 
   return (
-    <Space direction="vertical">
-      <h2>Create your account</h2>
+    <Space orientation="vertical">
+      <Typography.Title level={2}>Create your account</Typography.Title>
       <Input
         value={email}
         placeholder="Email"
