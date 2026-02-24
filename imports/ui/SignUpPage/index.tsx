@@ -4,6 +4,10 @@ import { Space, Button, Typography, message } from "antd";
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { publicRoutes } from "/utils/constants/routes";
+import { Meteor } from "meteor/meteor";
+import { MethodSetUserCreateModel } from "/imports/api/users/models";
+
+export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const SignUpPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -14,14 +18,11 @@ const SignUpPage = () => {
   const [location, navigate] = useLocation();
   const [loggingIn, setLoggingIn] = useState<boolean>(false);
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const cleanEmail = email.trim();
     const cleanUserName = userName.trim();
     const cleanFirstName = firstName.trim();
     const cleanLastName = lastName.trim();
-    const cleanPassword = password.trim();
 
     if (!emailRegex.test(cleanEmail)) {
       // Show an error message
@@ -41,6 +42,21 @@ const SignUpPage = () => {
     }
 
     setLoggingIn(true);
+
+    try {
+      const data: MethodSetUserCreateModel = {
+        email: cleanEmail,
+        password,
+        firstName: cleanFirstName,
+        lastName: cleanLastName,
+        userName: cleanUserName,
+      };
+
+      await Meteor.callAsync("set.user.create", data);
+    } catch (error) {
+      setLoggingIn(false);
+      return message.error("An error occurred while creating the account");
+    }
   };
 
   return (
