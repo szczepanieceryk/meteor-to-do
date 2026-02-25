@@ -1,4 +1,4 @@
-import Input from "antd/es/input/Input";
+import { Input } from "antd";
 import React from "react";
 import { Space, Button, Typography, message } from "antd";
 import { useState } from "react";
@@ -82,7 +82,7 @@ const SignUpPage = () => {
         placeholder="Last Name"
         onChange={(e) => setLastName(e.target.value)}
       />
-      <Input
+      <Input.Password
         value={password}
         placeholder="Password"
         onChange={(e) => setPassword(e.target.value)}
