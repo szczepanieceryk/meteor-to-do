@@ -4,8 +4,7 @@ import { MethodSetUserCreateModel, UserModel } from "../models";
 import { check, Match } from "meteor/check";
 import { stringContainsOnlyLettersAndNumbers } from "/utils/checks";
 import { clientConnectionError, clientContentError } from "/utils/serverError";
-import { emailRegex } from "/imports/ui/SignUpPage";
-import UserProfileCollection from "../userProfile";
+import UserProfileCollection from "../../userProfile/userProfile";
 
 Meteor.methods({
   "set.user.create": async ({
@@ -27,6 +26,7 @@ Meteor.methods({
       );
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const cleanEmail: string = email.trim();
     if (!emailRegex.test(cleanEmail)) {
       return clientContentError("Email is invalid.");

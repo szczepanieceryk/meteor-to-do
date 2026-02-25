@@ -7,7 +7,7 @@ import { publicRoutes } from "/utils/constants/routes";
 import { Meteor } from "meteor/meteor";
 import { MethodSetUserCreateModel } from "/imports/api/users/models";
 
-export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const SignUpPage = () => {
   const [email, setEmail] = useState<string>("");
