@@ -68,6 +68,7 @@ const SignUpPage = () => {
         onChange={(e) => setEmail(e.target.value)}
       />
       <Input
+        prefix="@"
         value={userName}
         placeholder="User Name"
         onChange={(e) => setUserName(e.target.value)}
