@@ -39,8 +39,7 @@ Meteor.methods({
     }
     const cleanUserName: string = userName.trim();
     const existingUserName = await UserProfileCollection.findOneAsync({
-      userName: `
-      @${cleanUserName}`,
+      userName: `@${cleanUserName}`,
     });
 
     if (existingUserName) {
