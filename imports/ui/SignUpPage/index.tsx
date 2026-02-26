@@ -6,6 +6,7 @@ import { useLocation } from "wouter";
 import { publicRoutes } from "/utils/constants/routes";
 import { Meteor } from "meteor/meteor";
 import { MethodSetUserCreateModel } from "/imports/api/users/models";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -60,6 +61,10 @@ const SignUpPage = () => {
 
     message.success("Account created successfully!");
   };
+
+  if (loggingIn) {
+    return <LoadingOutlined />;
+  }
 
   return (
     <Space orientation="vertical">
