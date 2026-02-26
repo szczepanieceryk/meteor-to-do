@@ -62,8 +62,7 @@ Meteor.methods({
       userId: newUser._id,
       firstName,
       lastName,
-      userName: `
-      @${cleanUserName}`,
+      userName: `@${cleanUserName}`,
     });
   },
 });
