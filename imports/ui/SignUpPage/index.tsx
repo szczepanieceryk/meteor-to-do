@@ -57,6 +57,8 @@ const SignUpPage = () => {
       setLoggingIn(false);
       return message.error("An error occurred while creating the account");
     }
+
+    message.success("Account created successfully!");
   };
 
   return (
