@@ -33,6 +33,24 @@ export const publicRoutes: Record<string, PublicRoute> = {
   },
 };
 
+export const navigationRoutes = {
+  home: {
+    path: "/",
+    title: "Home",
+    element: (<HomePage />) as React.ReactNode,
+  },
+  signup: {
+    path: "/signup",
+    title: "SignUp",
+    element: (<SignUpPage />) as React.ReactNode,
+  },
+  login: {
+    path: "/login",
+    title: "Login",
+    element: (<LoginPage />) as React.ReactNode,
+  },
+};
+
 export const protectedRoutes = {
   default: {
     path: "/404",
