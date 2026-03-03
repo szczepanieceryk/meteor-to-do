@@ -4,21 +4,31 @@ import HomePage from "../../imports/ui/HomePage";
 import NotFoundPage from "/imports/ui/NotFoundPage";
 import SignUpPage from "/imports/ui/SignUpPage";
 
-export const publicRoutes = {
+interface PublicRoute {
+  path: string;
+  title: string;
+  element: React.ReactNode;
+}
+
+export const publicRoutes: Record<string, PublicRoute> = {
   login: {
     path: "/login",
+    title: "Login",
     element: (<LoginPage />) as React.ReactNode,
   },
   signup: {
     path: "/signup",
+    title: "SignUp",
     element: (<SignUpPage />) as React.ReactNode,
   },
   home: {
     path: "/",
+    title: "Home",
     element: (<HomePage />) as React.ReactNode,
   },
   default: {
     path: "*",
+    title: "LogIn",
     element: (<LoginPage />) as React.ReactNode,
   },
 };
