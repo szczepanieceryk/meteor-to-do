@@ -1,4 +1,4 @@
-import { ConfigProvider, theme } from "antd";
+import { Button, ConfigProvider, theme } from "antd";
 import React from "react";
 import { Route, Switch } from "wouter";
 import { useTracker } from "meteor/react-meteor-data";
@@ -41,6 +41,14 @@ const App = () => {
           </Route>
         ))}
       </Switch>
+
+      <Button
+        onClick={() => {
+          Meteor.logout();
+        }}
+      >
+        Logout
+      </Button>
     </ConfigProvider>
   );
 };
